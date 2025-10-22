@@ -4,7 +4,7 @@ This directory contains organized practice files following the [Nvidia C++ Roadm
 
 ## Directory Structure
 
-### Phase 1: Fundamentals (2-3 months)
+### Phase 1: Fundamentals
 ```
 phase1_fundamentals/
 ├── basics/              # Basic syntax, control flow, functions
@@ -13,7 +13,7 @@ phase1_fundamentals/
 └── data_structures/     # Structures, enums, file I/O
 ```
 
-### Phase 2: Intermediate (3-4 months)
+### Phase 2: Intermediate
 ```
 phase2_intermediate/
 ├── oop_basics/          # Classes, objects, constructors
@@ -22,7 +22,7 @@ phase2_intermediate/
 └── memory_management/   # RAII, smart pointers, move semantics
 ```
 
-### Phase 3: Advanced (3-4 months)
+### Phase 3: Advanced
 ```
 phase3_advanced/
 ├── templates/           # Function/class templates, specialization
@@ -31,7 +31,7 @@ phase3_advanced/
 └── design_patterns/     # Common design patterns
 ```
 
-### Phase 4: Performance & Optimization (2-3 months)
+### Phase 4: Performance & Optimization
 ```
 phase4_performance/
 ├── profiling/           # Benchmarking, profiling tools
@@ -40,7 +40,7 @@ phase4_performance/
 └── cache_optimization/  # Cache-friendly code, alignment, prefetching
 ```
 
-### Phase 5: GPU Programming & CUDA (3-6 months) ⭐ CRITICAL FOR NVIDIA
+### Phase 5: GPU Programming & CUDA ⭐ CRITICAL FOR NVIDIA
 ```
 phase5_cuda/
 ├── gpu_basics/          # GPU architecture fundamentals
@@ -50,7 +50,7 @@ phase5_cuda/
 └── cuda_libraries/      # cuBLAS, cuDNN, Thrust, TensorRT
 ```
 
-### Phase 6: Specialized Topics (2-4 months)
+### Phase 6: Specialized Topics
 ```
 phase6_specialized/
 ├── graphics/            # OpenGL, Vulkan, shaders, ray tracing
@@ -105,23 +105,6 @@ Major projects in `phase7_projects/` have their own README files with:
 - Comment your code thoroughly
 - Write tests for your implementations
 - Compare your solutions with standard library implementations
-
-## Recommended Practice Schedule
-
-### Daily Practice (Minimum)
-- 1-2 hours of focused practice
-- Complete 1-2 practice files per day
-- Review and refactor previous code
-
-### Weekly Goals
-- Complete 1 topic area (e.g., all OOP basics files)
-- Write at least 1 test suite
-- Profile and optimize 1 piece of code
-
-### Monthly Milestones
-- Complete 1 phase per month (adjust based on complexity)
-- Complete at least 1 mini-project
-- Review and consolidate knowledge
 
 ## Important Notes
 

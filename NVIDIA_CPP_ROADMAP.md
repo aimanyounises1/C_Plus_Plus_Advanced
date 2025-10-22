@@ -4,12 +4,12 @@ A comprehensive guide to mastering C++ and related technologies for a career at 
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
-2. [Phase 1: C++ Fundamentals (2-3 months)](#phase-1-c-fundamentals-2-3-months)
-3. [Phase 2: Intermediate C++ (3-4 months)](#phase-2-intermediate-c-3-4-months)
-4. [Phase 3: Advanced C++ (3-4 months)](#phase-3-advanced-c-3-4-months)
-5. [Phase 4: Performance & Optimization (2-3 months)](#phase-4-performance--optimization-2-3-months)
-6. [Phase 5: GPU Programming & CUDA (3-6 months)](#phase-5-gpu-programming--cuda-3-6-months)
-7. [Phase 6: Specialized Topics (2-4 months)](#phase-6-specialized-topics-2-4-months)
+2. [Phase 1: C++ Fundamentals](#phase-1-c-fundamentals)
+3. [Phase 2: Intermediate C++](#phase-2-intermediate-c)
+4. [Phase 3: Advanced C++](#phase-3-advanced-c)
+5. [Phase 4: Performance & Optimization](#phase-4-performance--optimization)
+6. [Phase 5: GPU Programming & CUDA](#phase-5-gpu-programming--cuda)
+7. [Phase 6: Specialized Topics](#phase-6-specialized-topics)
 8. [Phase 7: Projects & Portfolio](#phase-7-projects--portfolio)
 9. [Interview Preparation](#interview-preparation)
 10. [Resources](#resources)
@@ -26,9 +26,9 @@ Before starting this roadmap, you should have:
 
 ---
 
-## Phase 1: C++ Fundamentals (2-3 months)
+## Phase 1: C++ Fundamentals
 
-### Week 1-2: Basic Syntax and Structure
+### Basic Syntax and Structure
 - [ ] Setup development environment (IDE: VS Code, CLion, or Visual Studio)
 - [ ] Learn compilation process (g++, clang++)
 - [ ] Variables, data types, and operators
@@ -36,14 +36,14 @@ Before starting this roadmap, you should have:
 - [ ] Functions and scope
 - [ ] Arrays and strings
 
-### Week 3-4: Pointers and Memory
+### Pointers and Memory
 - [ ] Pointers and references
 - [ ] Dynamic memory allocation (new/delete)
 - [ ] Pointer arithmetic
 - [ ] Memory layout and stack vs heap
 - [ ] Introduction to memory leaks
 
-### Week 5-6: Functions and Modularity
+### Functions and Modularity
 - [ ] Function overloading
 - [ ] Recursion
 - [ ] Header files and source files
@@ -51,7 +51,7 @@ Before starting this roadmap, you should have:
 - [ ] Namespaces
 - [ ] Compilation units and linking
 
-### Week 7-8: Basic Data Structures
+### Basic Data Structures
 - [ ] Structures (struct)
 - [ ] Enumerations (enum)
 - [ ] Basic file I/O
@@ -65,9 +65,9 @@ Before starting this roadmap, you should have:
 
 ---
 
-## Phase 2: Intermediate C++ (3-4 months)
+## Phase 2: Intermediate C++
 
-### Month 1: Object-Oriented Programming
+### Object-Oriented Programming
 - [ ] Classes and objects
 - [ ] Constructors and destructors
 - [ ] Access specifiers (public, private, protected)
@@ -76,7 +76,7 @@ Before starting this roadmap, you should have:
 - [ ] Static members
 - [ ] Friend functions and classes
 
-### Month 2: Advanced OOP
+### Advanced OOP
 - [ ] Inheritance (single, multiple, multilevel)
 - [ ] Polymorphism (compile-time and runtime)
 - [ ] Virtual functions and vtables
@@ -86,7 +86,7 @@ Before starting this roadmap, you should have:
 - [ ] Copy constructor and assignment operator
 - [ ] The Rule of Three
 
-### Month 3: STL (Standard Template Library)
+### STL (Standard Template Library)
 - [ ] Containers (vector, list, deque, set, map, unordered_map)
 - [ ] Iterators (input, output, forward, bidirectional, random access)
 - [ ] Algorithms (sort, find, transform, accumulate)
@@ -95,7 +95,7 @@ Before starting this roadmap, you should have:
 - [ ] String operations
 - [ ] Utility classes (pair, tuple)
 
-### Month 4: Memory Management Deep Dive
+### Memory Management Deep Dive
 - [ ] RAII (Resource Acquisition Is Initialization)
 - [ ] Smart pointers (unique_ptr, shared_ptr, weak_ptr)
 - [ ] Move semantics (C++11)
@@ -112,9 +112,9 @@ Before starting this roadmap, you should have:
 
 ---
 
-## Phase 3: Advanced C++ (3-4 months)
+## Phase 3: Advanced C++
 
-### Month 1: Templates
+### Templates
 - [ ] Function templates
 - [ ] Class templates
 - [ ] Template specialization
@@ -123,7 +123,7 @@ Before starting this roadmap, you should have:
 - [ ] SFINAE (Substitution Failure Is Not An Error)
 - [ ] Concepts (C++20)
 
-### Month 2: Modern C++ Features
+### Modern C++ Features
 - [ ] Auto and decltype
 - [ ] Range-based for loops
 - [ ] nullptr
@@ -134,7 +134,7 @@ Before starting this roadmap, you should have:
 - [ ] Coroutines (C++20)
 - [ ] Ranges (C++20)
 
-### Month 3: Concurrency and Multithreading
+### Concurrency and Multithreading
 - [ ] std::thread
 - [ ] Mutexes and locks (std::mutex, std::lock_guard, std::unique_lock)
 - [ ] Condition variables
@@ -145,7 +145,7 @@ Before starting this roadmap, you should have:
 - [ ] Lock-free programming basics
 - [ ] Memory ordering and consistency
 
-### Month 4: Advanced Topics
+### Advanced Topics
 - [ ] Exception handling best practices
 - [ ] Type traits
 - [ ] Compile-time programming (constexpr, consteval)
@@ -161,9 +161,9 @@ Before starting this roadmap, you should have:
 
 ---
 
-## Phase 4: Performance & Optimization (2-3 months)
+## Phase 4: Performance & Optimization
 
-### Month 1: Profiling and Measurement
+### Profiling and Measurement
 - [ ] Profiling tools (gprof, valgrind, perf)
 - [ ] Memory profilers (valgrind, AddressSanitizer)
 - [ ] Benchmarking (Google Benchmark)
@@ -171,7 +171,7 @@ Before starting this roadmap, you should have:
 - [ ] Cache hierarchies and cache-friendly code
 - [ ] Branch prediction
 
-### Month 2: Optimization Techniques
+### Optimization Techniques
 - [ ] Compiler optimizations (-O2, -O3, PGO)
 - [ ] Loop optimizations
 - [ ] Data structure optimization
@@ -181,7 +181,7 @@ Before starting this roadmap, you should have:
 - [ ] Intrinsics
 - [ ] Link-time optimization (LTO)
 
-### Month 3: Advanced Performance
+### Advanced Performance
 - [ ] Zero-copy techniques
 - [ ] Small string optimization
 - [ ] Memory prefetching
@@ -198,11 +198,11 @@ Before starting this roadmap, you should have:
 
 ---
 
-## Phase 5: GPU Programming & CUDA (3-6 months)
+## Phase 5: GPU Programming & CUDA
 
 **This is CRITICAL for Nvidia positions**
 
-### Month 1: GPU Architecture Fundamentals
+### GPU Architecture Fundamentals
 - [ ] GPU vs CPU architecture
 - [ ] SIMT (Single Instruction Multiple Thread) model
 - [ ] Memory hierarchy (global, shared, local, constant)
@@ -211,7 +211,7 @@ Before starting this roadmap, you should have:
 - [ ] Compute capability
 - [ ] Occupancy and latency hiding
 
-### Month 2: CUDA Basics
+### CUDA Basics
 - [ ] CUDA toolkit installation
 - [ ] First CUDA program
 - [ ] Kernel launches and grid configuration
@@ -221,7 +221,7 @@ Before starting this roadmap, you should have:
 - [ ] Unified Memory
 - [ ] CUDA streams
 
-### Month 3: Advanced CUDA Programming
+### Advanced CUDA Programming
 - [ ] Shared memory and synchronization
 - [ ] Coalesced memory access
 - [ ] Bank conflicts
@@ -231,7 +231,7 @@ Before starting this roadmap, you should have:
 - [ ] Cooperative groups
 - [ ] Dynamic parallelism
 
-### Month 4: CUDA Optimization
+### CUDA Optimization
 - [ ] Profiling with Nsight Compute and Nsight Systems
 - [ ] Occupancy optimization
 - [ ] Memory bandwidth optimization
@@ -240,7 +240,7 @@ Before starting this roadmap, you should have:
 - [ ] Multi-GPU programming
 - [ ] CUDA Graphs
 
-### Month 5-6: CUDA Libraries and Ecosystems
+### CUDA Libraries and Ecosystems
 - [ ] cuBLAS (linear algebra)
 - [ ] cuFFT (Fast Fourier Transform)
 - [ ] cuDNN (deep learning)
@@ -261,7 +261,7 @@ Before starting this roadmap, you should have:
 
 ---
 
-## Phase 6: Specialized Topics (2-4 months)
+## Phase 6: Specialized Topics
 
 ### Computer Graphics
 - [ ] Graphics pipeline basics
@@ -429,22 +429,6 @@ Build impressive projects that showcase your skills:
 - **Profilers:** Nsight Compute, Nsight Systems, valgrind, perf
 - **Build:** CMake, Make, Ninja
 - **Version Control:** Git
-
----
-
-## Timeline Summary
-
-**Total Time: 18-30 months** (depending on prior experience and time commitment)
-
-- Phase 1: 2-3 months (Fundamentals)
-- Phase 2: 3-4 months (Intermediate)
-- Phase 3: 3-4 months (Advanced)
-- Phase 4: 2-3 months (Performance)
-- Phase 5: 3-6 months (CUDA) - **Critical for Nvidia**
-- Phase 6: 2-4 months (Specialized)
-- Phase 7: Ongoing (Projects & Portfolio)
-
-**Accelerated Path:** If you already know C++ basics, focus heavily on Phases 4-6, especially CUDA programming.
 
 ---
 
