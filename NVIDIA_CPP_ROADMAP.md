@@ -2,6 +2,8 @@
 
 A comprehensive guide to mastering C++ and related technologies for a career at Nvidia.
 
+**📚 [Learning Resources & Links](./LEARNING_RESOURCES.md)** - Courses, tutorials, books, and tools for each phase
+
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Phase 1: C++ Fundamentals](#phase-1-c-fundamentals)

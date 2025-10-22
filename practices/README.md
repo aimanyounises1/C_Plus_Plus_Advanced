@@ -2,6 +2,8 @@
 
 This directory contains organized practice files following the [Nvidia C++ Roadmap](../NVIDIA_CPP_ROADMAP.md).
 
+**📚 [Learning Resources & Links](../LEARNING_RESOURCES.md)** - Find courses, tutorials, and tools to support your learning
+
 ## Directory Structure
 
 ### Phase 1: Fundamentals
