@@ -43,6 +43,34 @@ This repository is a complete learning pathway from C++ fundamentals to advanced
 
 ---
 
+## Platform Compatibility
+
+### CUDA Support by Platform
+
+| Platform | CUDA Support | Setup Instructions |
+|----------|--------------|-------------------|
+| **Linux** | ✅ Full native support | Install CUDA Toolkit locally |
+| **Windows** | ✅ Full native support | Install CUDA Toolkit + Visual Studio |
+| **macOS (Intel)** | ❌ Not supported | Use cloud GPU (see below) |
+| **macOS (Apple Silicon)** | ❌ Not supported | Use cloud GPU (see below) |
+
+### Important for Mac Users (Including M4 Max)
+
+**CUDA does not run on macOS** - Apple removed NVIDIA driver support years ago, and Apple Silicon (M1/M2/M3/M4) uses a completely different architecture.
+
+**Solution:** Use cloud GPU instances
+- 📘 **Complete Mac Setup Guide:** [MACOS_SETUP.md](MACOS_SETUP.md)
+- ☁️ **Cloud GPU Quick Start:** [CLOUD_GPU_SETUP.md](CLOUD_GPU_SETUP.md)
+
+**Recommended for Mac users:**
+- ✅ C++ learning: Use Mac natively (Phases 1-4)
+- ✅ CUDA learning: Use Google Colab (FREE) or Paperspace ($8/month)
+- ✅ Projects: Use AWS/GCP with free credits
+
+**This is completely acceptable for Nvidia interviews** - they understand Mac users need cloud resources!
+
+---
+
 ## Repository Structure
 
 ```
@@ -71,7 +99,9 @@ C_Plus_Plus_Advanced/
 
 ## Quick Start
 
-### Prerequisites
+### Choose Your Setup
+
+**Linux/Windows with NVIDIA GPU:**
 ```bash
 # C++ compiler (GCC 9+ or Clang 10+)
 sudo apt install build-essential
@@ -83,6 +113,20 @@ sudo apt install build-essential
 # Included with CUDA Toolkit
 ```
 
+**Mac (Intel or Apple Silicon):**
+```bash
+# Install C++ compiler
+xcode-select --install
+
+# For CUDA: See detailed setup guides
+# 📘 MACOS_SETUP.md - Complete Mac guide
+# ☁️ CLOUD_GPU_SETUP.md - Cloud GPU setup (5 min)
+```
+
+**Don't have NVIDIA GPU? (Any platform):**
+- Use Google Colab (FREE) - See [CLOUD_GPU_SETUP.md](CLOUD_GPU_SETUP.md)
+- 2-minute setup, instant CUDA access
+
 ### Clone and Explore
 ```bash
 git clone https://github.com/aimanyounises1/C_Plus_Plus_Advanced.git
@@ -91,10 +135,12 @@ cd C_Plus_Plus_Advanced
 # Start with the roadmap
 cat NVIDIA_CPP_ROADMAP.md
 
-# Try a CUDA example
+# Try a CUDA example (Linux/Windows with GPU)
 cd solutions/phase5_cuda
 nvcc -o vector_add 01_vector_addition_optimized.cu -O3 -arch=sm_70
 ./vector_add
+
+# For Mac/Cloud: See CLOUD_GPU_SETUP.md for Google Colab instructions
 ```
 
 ---
