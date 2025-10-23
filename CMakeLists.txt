@@ -58,6 +58,10 @@ find_package(Threads REQUIRED)
 # Add subdirectories
 add_subdirectory(solutions)
 
+# Uncomment the line below AFTER filling in practice template files
+# See practices/README_PRACTICES.md for instructions
+# add_subdirectory(practices)
+
 # Print configuration summary
 message(STATUS "")
 message(STATUS "========================================")
