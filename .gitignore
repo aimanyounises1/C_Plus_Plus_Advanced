@@ -1,0 +1,57 @@
+# CLion
+.idea/
+cmake-build-*/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+build/
+out/
+
+# Build artifacts
+*.o
+*.so
+*.a
+*.dylib
+*.exe
+*.out
+vector_add
+matmul
+reduction
+two_sum_gpu
+
+# CUDA
+*.fatbin
+*.cubin
+*.ptx
+
+# Profiling
+*.nsys-rep
+*.ncu-rep
+*.qdrep
+*.sqlite
+profile_*.txt
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+*.dSYM/
+
+# Linux
+*~
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.log
+*.bak

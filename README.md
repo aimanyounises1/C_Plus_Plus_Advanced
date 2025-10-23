@@ -143,6 +143,24 @@ nvcc -o vector_add 01_vector_addition_optimized.cu -O3 -arch=sm_70
 # For Mac/Cloud: See CLOUD_GPU_SETUP.md for Google Colab instructions
 ```
 
+### Using CLion IDE (Automatic Setup)
+
+**CLion automatically configures everything via CMake:**
+
+1. **Open project:** `File → Open → Select C_Plus_Plus_Advanced folder`
+2. **Wait for CMake** to auto-configure (30 seconds)
+3. **Select target:** Dropdown → Choose `vector_add`, `matmul`, or `reduction`
+4. **Build & Run:** Click green play button ▶️
+
+✅ **CMake configuration included** - No manual setup needed!
+
+📘 **Complete CLion Guide:** [CLION_SETUP.md](CLION_SETUP.md)
+- Automatic C++ and CUDA detection
+- Build configurations (Debug/Release)
+- Integrated debugging and profiling
+- Platform-specific instructions
+- Troubleshooting guide
+
 ---
 
 ## Learning Paths
