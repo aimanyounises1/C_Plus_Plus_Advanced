@@ -1,0 +1,90 @@
+# Practice Files CMake Configuration
+#
+# IMPORTANT: This file is a TEMPLATE for when you fill in the practice exercises.
+# The practice files are currently just TODO templates with no actual code.
+#
+# TO USE THIS:
+# 1. Fill in the practice .cpp/.cu files with your implementations
+# 2. Rename this file from CMakeLists.txt.template to CMakeLists.txt
+# 3. Uncomment the line in the root CMakeLists.txt that adds this subdirectory
+# 4. Run cmake again
+#
+# Example of filling in a practice file:
+# Replace: // TODO: Practice declaring and using different data types
+# With actual C++ code that compiles and runs
+
+# Phase 1: Fundamentals
+file(GLOB PHASE1_BASICS practices/phase1_fundamentals/basics/*.cpp)
+file(GLOB PHASE1_POINTERS practices/phase1_fundamentals/pointers_memory/*.cpp)
+file(GLOB PHASE1_FUNCTIONS practices/phase1_fundamentals/functions/*.cpp)
+file(GLOB PHASE1_DATA_STRUCTURES practices/phase1_fundamentals/data_structures/*.cpp)
+
+# Create executables for each practice file
+# Uncomment these after filling in the practice files:
+
+# foreach(practice_file ${PHASE1_BASICS})
+#     get_filename_component(practice_name ${practice_file} NAME_WE)
+#     add_executable(${practice_name} ${practice_file})
+# endforeach()
+
+# Phase 2: Intermediate
+# file(GLOB PHASE2_OOP practices/phase2_intermediate/oop_basics/*.cpp)
+# foreach(practice_file ${PHASE2_OOP})
+#     get_filename_component(practice_name ${practice_file} NAME_WE)
+#     add_executable(${practice_name} ${practice_file})
+# endforeach()
+
+# Phase 3: Advanced
+# file(GLOB PHASE3_TEMPLATES practices/phase3_advanced/templates/*.cpp)
+# file(GLOB PHASE3_CONCURRENCY practices/phase3_advanced/concurrency/*.cpp)
+# foreach(practice_file ${PHASE3_TEMPLATES})
+#     get_filename_component(practice_name ${practice_file} NAME_WE)
+#     add_executable(${practice_name} ${practice_file})
+#     if(practice_file MATCHES "concurrency")
+#         target_link_libraries(${practice_name} Threads::Threads)
+#     endif()
+# endforeach()
+
+# Phase 4: Performance
+# file(GLOB PHASE4_ALL practices/phase4_performance/*/*.cpp)
+# foreach(practice_file ${PHASE4_ALL})
+#     get_filename_component(practice_name ${practice_file} NAME_WE)
+#     add_executable(${practice_name} ${practice_file})
+# endforeach()
+
+# Phase 5: CUDA (only if CUDA available)
+if(CUDA_AVAILABLE)
+    # file(GLOB_RECURSE PHASE5_CUDA practices/phase5_cuda/**/*.cu)
+    # foreach(practice_file ${PHASE5_CUDA})
+    #     get_filename_component(practice_name ${practice_file} NAME_WE)
+    #     add_executable(${practice_name} ${practice_file})
+    #     set_target_properties(${practice_name} PROPERTIES
+    #         CUDA_SEPARABLE_COMPILATION ON
+    #     )
+    # endforeach()
+endif()
+
+# Phase 6: Specialized
+# file(GLOB_RECURSE PHASE6_ALL practices/phase6_specialized/*/*.cpp practices/phase6_specialized/*/*.cu)
+# foreach(practice_file ${PHASE6_ALL})
+#     get_filename_component(practice_name ${practice_file} NAME_WE)
+#     get_filename_component(practice_ext ${practice_file} EXT)
+#     if(practice_ext STREQUAL ".cu" AND CUDA_AVAILABLE)
+#         add_executable(${practice_name} ${practice_file})
+#         set_target_properties(${practice_name} PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+#     elseif(practice_ext STREQUAL ".cpp")
+#         add_executable(${practice_name} ${practice_file})
+#     endif()
+# endforeach()
+
+# Phase 7: Mini Projects
+# file(GLOB PHASE7_MINI practices/phase7_projects/mini_projects/*.cpp)
+# foreach(practice_file ${PHASE7_MINI})
+#     get_filename_component(practice_name ${practice_file} NAME_WE)
+#     add_executable(${practice_name} ${practice_file})
+# endforeach()
+
+message(STATUS "")
+message(STATUS "Practice files configuration loaded (currently commented out)")
+message(STATUS "Fill in practice files with actual code, then uncomment sections above")
+message(STATUS "")
