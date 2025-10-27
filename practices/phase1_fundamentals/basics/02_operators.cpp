@@ -31,18 +31,19 @@ int main() {
     std::cout << "--------------------------------\n";
 
     // TODO 1.1: Declare two integers a=10, b=3
-
+    int a = 10;
+    int b = 3;
 
     // TODO 1.2: Perform and print: addition, subtraction, multiplication, division, modulo
     // Example: std::cout << "a + b = " << (a + b) << "\n";
+    std::cout << "a + b = " << (a + b) << "\n";
+    std::cout << "a - b = " << (a - b) << "\n";
+    std::cout << "a * b = " << (a + b) << "\n";
+    std::cout << "a / b = " << (a / b) << "\n";
 
-
-
-
-
-    // TODO 1.3: What happens with division? (integer vs float)
+    // TODO 1.3: What happens with division? (integer vs float) the result will be integer
     // Calculate 10/3 as int and as double
-
+    std::cout << "a / b = " << (a / b) << "\n";
 
     std::cout << "\n";
 
@@ -56,21 +57,20 @@ int main() {
 
     // TODO 2.1: Post-increment (x++)
     // Print x, then x++, then x again to see the difference
-
-
+    std::cout << "x++ = " << x++ << std::endl;
+    x = --x;
 
     // TODO 2.2: Pre-increment (++x)
     // Reset x to 5, then print ++x and x
-
-
+    x = ++x;
 
     // TODO 2.3: Demonstrate the difference
     int y = 10;
-    int result1 = y++;  // Post: use then increment
-    int result2 = ++y;  // Pre: increment then use
+    int result1 = y++; // Post: use then increment
+    int result2 = ++y; // Pre: increment then use
     // Print both results and y
-
-
+    std::cout << "result1 = " << result1 << std::endl;
+    std::cout << "result2 = " << result2 << std::endl;
 
     std::cout << "\n";
 
@@ -85,11 +85,9 @@ int main() {
     // TODO 3.1: Test all relational operators
     // Print results of: ==, !=, <, >, <=, >=
     // Example: std::cout << "num1 == num2: " << (num1 == num2) << "\n";
-
-
-
-
-
+    std::cout << "num1 ==  num2 = " << (num1 == num2) << std::endl;
+    std::cout << "num1 <= num2 = " << (num1 <= num2) << std::endl;
+    std::cout << "num1 >=  num2 = " << (num1 >= num2) << std::endl;
 
     std::cout << "\n";
 
@@ -104,19 +102,22 @@ int main() {
 
     // TODO 4.1: AND operator (&&)
     // Can enter building if student AND has ID
-
+    std::cout << "And operator " << (isStudent && hasID) << std::endl;
 
     // TODO 4.2: OR operator (||)
     // Can get discount if student OR senior (create bool isSenior)
+    std::cout << "Or operator " << (isStudent || hasID) << std::endl;
 
 
     // TODO 4.3: NOT operator (!)
     // Invert a boolean
+    std::cout << "Or operator " << !(isStudent || hasID) << std::endl;
 
 
     // TODO 4.4: Complex expression
     // (isStudent && hasID) || isSenior
-
+    bool isSenior = true;
+    std::cout << "Complex expression" << ((isSenior && isStudent) || isSenior) << std::endl;
 
     std::cout << "\n";
 
@@ -126,33 +127,36 @@ int main() {
     std::cout << "Exercise 5: Bitwise Operators\n";
     std::cout << "-----------------------------\n";
 
-    unsigned int a = 12;  // Binary: 1100
-    unsigned int b = 10;  // Binary: 1010
+    unsigned int a1 = 12; // Binary: 1100
+    unsigned int b1 = 10; // Binary: 1010
 
     // TODO 5.1: Print binary representations
-    std::cout << "a = " << a << " (binary: " << std::bitset<8>(a) << ")\n";
-    std::cout << "b = " << b << " (binary: " << std::bitset<8>(b) << ")\n\n";
+    std::cout << "a = " << a1 << " (binary: " << std::bitset<8>(a1) << ")\n";
+    std::cout << "b = " << b1 << " (binary: " << std::bitset<8>(b1) << ")\n\n";
 
     // TODO 5.2: AND operator (&)
     // Result: 1100 & 1010 = 1000 (8)
-
+    std::cout << "And operator on unassigned = " << (a1 & b1) << std::endl;
 
     // TODO 5.3: OR operator (|)
     // Result: 1100 | 1010 = 1110 (14)
-
+    std::cout << "Or operator = " << (a1 | b1) << std::endl;
 
     // TODO 5.4: XOR operator (^)
     // Result: 1100 ^ 1010 = 0110 (6)
+    std::cout << "XOR operator = " << (a1 ^ b1) << std::endl;
 
 
     // TODO 5.5: NOT operator (~)
     // Inverts all bits
 
+    std::cout << " NOT operator =" << (~a1) << std::endl;
+    std::cout << " NOT operator =" << (~b1) << std::endl;
 
     // TODO 5.6: Left shift (<<)
     // Multiplies by 2^n
     // Example: 12 << 1 = 24 (multiply by 2)
-
+    std::cout << (a1 << b1) << std::endl;
 
     // TODO 5.7: Right shift (>>)
     // Divides by 2^n
@@ -174,13 +178,8 @@ int main() {
     // Example: value += 10 (same as value = value + 10)
 
 
-
-
-
     // TODO 6.2: Bitwise compound assignments
     // &=, |=, ^=, <<=, >>=
-
-
 
 
     std::cout << "\n";
@@ -192,11 +191,11 @@ int main() {
     std::cout << "-------------------------------\n";
 
     // TODO 7.1: Predict the result, then verify
-    int result = 2 + 3 * 4;  // What is the result? (14 or 20?)
+    int result = 2 + 3 * 4; // What is the result? (14 or 20?)
 
 
     // TODO 7.2: Use parentheses to change order
-    int result2 = (2 + 3) * 4;
+    int result_2 = (2 + 3) * 4;
 
 
     // TODO 7.3: Complex expression
@@ -230,7 +229,7 @@ int main() {
 
     // TODO 8.4: Extract specific bits
     // Get the 3rd bit (0-indexed) of a number
-    unsigned int data = 0b11010110;  // Binary literal
+    unsigned int data = 0b11010110; // Binary literal
     // Extract bit 3 (which is 0): (data >> 3) & 1
 
 
@@ -252,21 +251,29 @@ int main() {
 
     // CHALLENGE 1: Count the number of 1s in binary representation
     // Example: 13 (1101) has three 1s
-    unsigned int number = 29;  // Binary: 11101
+    unsigned int number = 29; // Binary: 11101
     // Hint: Loop and check each bit, or use Brian Kernighan's algorithm
-
-
-
+    auto binary = std::bitset<8>(number);
+    std::cout << "Number of 1s is = " << binary.count() << std::endl;
+    int count = 0;
+    // Loop version
+    for (auto i = 0; i < binary.size(); ++i) {
+        if (binary[i] == 1) {
+            count++;
+        }
+    }
+    std::cout << "The number of the 1s  = " << count << std::endl;
     // CHALLENGE 2: Reverse the bits of a number
     // Example: 0b00001100 becomes 0b00110000
     unsigned char byte = 0b00001100;
-
-
-
+    std::string bits_reversed = std::bitset<8>(byte).to_string();
+    bits_reversed.reserve(bits_reversed.size());
+    std::cout << "bits_reversed = "  << bits_reversed << std::endl;
     // CHALLENGE 3: Check if two numbers have opposite signs
     // Hint: Use XOR on the sign bits
+    auto converted_byte = static_cast<unsigned char>(std::stoi(bits_reversed , nullptr, 2));
 
-
+    std::cout << "The integers are equal ? = "  <<  (converted_byte == static_cast<int>(byte));
 
     // CHALLENGE 4: Find the only non-repeating element
     // Given array where every element appears twice except one
@@ -274,9 +281,9 @@ int main() {
     // Hint: XOR all elements (duplicates cancel out)
     int arr[] = {4, 2, 7, 2, 4};
     int n = 5;
-
-
-
+    int start = arr[0];
+    for (const int val : arr) start ^= val;
+    std::cout << "The non repeating number is = " << start << std::endl;
     std::cout << "\n";
 
     // ========================================================================
@@ -297,16 +304,16 @@ int main() {
      *    Powers of 2 have only one bit set: 8 = 1000, 8-1 = 0111
      *    8 & 7 = 1000 & 0111 = 0000
      *
-     * Q4: Why use bitwise operations?
+     * Q4: Why use bitwise operations? bitwise operations are faster than arithmetic operations (programming , embedded systems, GPU kernels)
      * A: Much faster than arithmetic operations
      *    Essential in low-level programming, embedded systems, GPU kernels
      *    Used for flags, masks, compression
      *
-     * Q5: What does x ^= x do?
+     * Q5: What does x ^= x do? it will set the number to zero.
      * A: Sets x to 0. Any number XOR itself equals 0.
      *
-     * Q6: How to swap without a temp variable?
-     * A: Using XOR: a ^= b; b ^= a; a ^= b;
+     * Q6: How to swap without a temp variable? a = 1001 b = 0110 --> 0000
+     * A: Using XOR: a ^= b; b ^= a; a ^= b; a = 0000 -> 1001 || a ^= b --> 0110
      *    Or arithmetic: a = a + b; b = a - b; a = a - b;
      */
 
