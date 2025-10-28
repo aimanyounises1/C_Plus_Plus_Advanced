@@ -1,5 +1,6 @@
 # Solutions subdirectory
-
+cmake_minimum_required(VERSION 4.0)
+project(practices)
 # C++ Examples (always compiled - these have actual code)
 add_subdirectory(cpp_examples)
 

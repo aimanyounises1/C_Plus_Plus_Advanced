@@ -21,7 +21,10 @@
 
 #include <iostream>
 #include <iomanip>
+#include <numeric>
 #include <vector>
+#include <stdexcept>
+
 
 int main() {
     std::cout << "=== Control Flow Exercises ===\n\n";
@@ -36,7 +39,6 @@ int main() {
     // Check if a number is positive
     int number = 10;
 
-
     // TODO 1.2: if-else statement
     // Check if a number is even or odd
     // Hint: Use modulo operator (%)
@@ -47,14 +49,10 @@ int main() {
     int score = 85;
 
 
-
-
     // TODO 1.4: Nested if statements
     // Check if a year is a leap year
     // Rules: divisible by 4, but not by 100, unless also divisible by 400
     int year = 2024;
-
-
 
 
     std::cout << "\n";
@@ -93,17 +91,31 @@ int main() {
     // Print the day of the week (1 = Monday, 7 = Sunday)
     int day = 3;
 
-
-
-
     // TODO 3.2: Switch with fall-through
     // Classify months by number of days
-    int month = 2;  // February
+    int month = 2; // February
     // Months with 31 days: 1,3,5,7,8,10,12
     // Months with 30 days: 4,6,9,11
     // February: 28 (or 29 in leap year)
 
 
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 8:
+        case 7:
+        case 10:
+        case 12:
+            std::cout << "Month is within 31" << std::endl;
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            std::cout << "30 days\n";
+            break;
+    }
 
 
     // TODO 3.3: Switch vs if-else
@@ -135,14 +147,22 @@ int main() {
     // TODO 4.4: For loop to calculate sum
     // Sum of numbers 1 to 100
     int sum = 0;
-
+    std::array<int, 100> myArray;
+    std::iota(myArray.begin(), myArray.end(), 1);
+    for (int my_array: myArray) {
+        std::cout << "val is = " << my_array << std::endl;
+    }
 
     // TODO 4.5: For loop with array
-    int arr[] = {5, 10, 15, 20, 25};
+    int arr[] = {5, 10, 15, 20, 25}; // sizeof(arr) return the size of array in bytes,
     int size = sizeof(arr) / sizeof(arr[0]);
     // Print all elements
-
-
+    auto print_array = [size, &arr]() {
+        for (int i = 0; i < size; i++) {
+            std::cout << arr[i] << " ";
+        }
+    };
+    print_array();
     std::cout << "\n";
 
     // ========================================================================
@@ -163,7 +183,7 @@ int main() {
 
     // TODO 5.3: While loop for input validation
     // Simulate: keep asking for positive number (use a preset value to avoid actual input)
-    int userInput = -5;  // Pretend user entered this
+    int userInput = -5; // Pretend user entered this
     // In real code, you'd use cin
 
 
@@ -183,7 +203,8 @@ int main() {
     // TODO 6.2: Difference between while and do-while
     // while checks condition first, do-while checks after
     int k = 10;
-    while (k < 5) {  // This won't execute
+    while (k < 5) {
+        // This won't execute
         std::cout << "While: " << k << "\n";
     }
     // Now try do-while with same condition
@@ -217,9 +238,18 @@ int main() {
     int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int target = 5;
     bool found = false;
+    auto find_val = [&matrix](int row, int col, int target) -> bool {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (matrix[i][j] == target) {
+                    return true;
+                }
+            }
+        }
+        return false; // Return false if not found
+    };
 
-
-    std::cout << "\n";
+    std::cout << find_val(3, 3, 5) << std::endl; // Example: search for value 5
 
     // ========================================================================
     // EXERCISE 8: Nested Loops (10 min)
@@ -305,17 +335,22 @@ int main() {
     // TODO 10.2: Count occurrences of a value
     int values[] = {1, 2, 3, 2, 4, 2, 5, 2};
     int searchValue = 2;
-
-
+    std::vector<int> myVector(values, values + sizeof(values) / sizeof(values[0]));
+    std::cout << std::count(myVector.begin(), myVector.end(), searchValue) << std::endl;
     // TODO 10.3: Reverse an array
     int original[] = {1, 2, 3, 4, 5};
     int len = sizeof(original) / sizeof(original[0]);
-
+    std::vector<int> reverse_original(original, original + len);
+    std::reverse(reverse_original.begin(), reverse_original.end());
+    for (auto val: reverse_original) std::cout << val << std::endl;
 
     // TODO 10.4: Check if array is sorted
     int sorted[] = {1, 2, 3, 4, 5};
     int sortedSize = sizeof(sorted) / sizeof(sorted[0]);
-
+    bool is_sorted = false;
+    if (std::is_sorted(std::begin(sorted), std::end(sorted))) {
+        std::cout << "Sorted array " << std::endl;
+    }
 
     // TODO 10.5: Find prime numbers up to N
     int N = 50;
