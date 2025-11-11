@@ -59,7 +59,7 @@ protected:
     int age;
 
 public:
-    Animal(const string& n, int a) : name(n), age(a) {
+    Animal(const string &n, int a) : name(n), age(a) {
         cout << "Animal constructor: " << name << endl;
     }
 
@@ -76,7 +76,7 @@ private:
     string breed;
 
 public:
-    Dog(const string& n, int a, const string& b)
+    Dog(const string &n, int a, const string &b)
         : Animal(n, a), breed(b) {
         cout << "Dog constructor" << endl;
     }
@@ -90,143 +90,173 @@ public:
 
 // TODO 1.2: Test constructor/destructor order
 // Create Dog object, observe call sequence
-
-/*
- * EXERCISE 2: Access Control in Inheritance (15 min)
- */
-
-// TODO 2.1: Understand public vs protected vs private inheritance
-class Base {
-public:
-    int pub;
+class Cat : public Animal {
 protected:
-    int prot;
-private:
-    int priv;
-};
+    string breed;
 
-// Public inheritance (IS-A)
-class DerivedPublic : public Base {
-    // pub remains public
-    // prot remains protected
-    // priv not accessible
-};
-
-// Protected inheritance (implementation detail)
-class DerivedProtected : protected Base {
-    // pub becomes protected
-    // prot remains protected
-    // priv not accessible
-};
-
-// Private inheritance (implementation only)
-class DerivedPrivate : private Base {
-    // pub becomes private
-    // prot becomes private
-    // priv not accessible
-};
-
-/*
- * EXERCISE 3: Multiple Inheritance (15 min)
- */
-
-// TODO 3.1: Create class inheriting from multiple bases
-class Flyable {
 public:
-    virtual void fly() { cout << "Flying..." << endl; }
+    Cat(const string &n, int a, const string &b)
+        : Animal(n, a), breed(b) {
+    }
+
+    ~Cat() {
+        cout << "Cat decounstor in heap" << endl;
+    }
+
+    void meow() {
+        cout << "Moew" << endl;
+    };
 };
+    /*
+     * EXERCISE 2: Access Control in Inheritance (15 min)
+     */
 
-class Swimmable {
-public:
-    virtual void swim() { cout << "Swimming..." << endl; }
-};
+    // TODO 2.1: Understand public vs protected vs private inheritance
+    class Base {
+    public:
+        int pub;
 
-class Duck : public Animal, public Flyable, public Swimmable {
-public:
-    Duck(const string& n, int a) : Animal(n, a) {}
+    protected:
+        int prot;
 
-    void fly() override { cout << name << " flies!" << endl; }
-    void swim() override { cout << name << " swims!" << endl; }
-};
+    private:
+        int priv;
+    };
 
-// TODO 3.2: Test multiple inheritance
-// Create Duck, call methods from all base classes
+    // Public inheritance (IS-A)
+    class DerivedPublic : public Base {
+        // pub remains public
+        // prot remains protected
+        // priv not accessible
+    };
 
-/*
- * EXERCISE 4: Diamond Problem (10 min)
- */
+    // Protected inheritance (implementation detail)
+    class DerivedProtected : protected Base {
+        // pub becomes protected
+        // prot remains protected
+        // priv not accessible
+    };
 
-// TODO 4.1: Understand diamond problem
-class PoweredDevice {
-public:
-    void powerOn() { cout << "Powering on..." << endl; }
-};
+    // Private inheritance (implementation only)
+    class DerivedPrivate : private Base {
+        // pub becomes private
+        // prot becomes private
+        // priv not accessible
+    };
 
-// Without virtual inheritance: two copies of PoweredDevice
-class Scanner : public PoweredDevice { };
-class Printer : public PoweredDevice { };
-class Copier : public Scanner, public Printer {
-    // Ambiguous: Which powerOn()? Scanner's or Printer's?
-};
+    /*
+     * EXERCISE 3: Multiple Inheritance (15 min)
+     */
 
-// TODO 4.2: Fix with virtual inheritance
-class VScanner : virtual public PoweredDevice { };
-class VPrinter : virtual public PoweredDevice { };
-class VCopier : public VScanner, public VPrinter {
-    // Now only one copy of PoweredDevice
-};
+    // TODO 3.1: Create class inheriting from multiple bases
+    class Flyable {
+    public:
+        virtual void fly() { cout << "Flying..." << endl; }
+    };
 
-/*
- * COMMON INTERVIEW QUESTIONS:
- *
- * Q1: What is inheritance?
- * A: Mechanism to create new class from existing class, inheriting members and behavior
- *
- * Q2: When to use public inheritance?
- * A: IS-A relationship: Derived IS-A Base (Dog IS-A Animal)
- *
- * Q3: Constructor/destructor call order in inheritance?
- * A: Construction: Base → Derived. Destruction: Derived → Base (reverse order)
- *
- * Q4: What is the diamond problem?
- * A: Multiple inheritance causing duplicate base class. Fix with virtual inheritance
- *
- * Q5: Can you override non-virtual functions?
- * A: Yes, but it's hiding (not polymorphic). Use virtual for true override
- *
- * Q6: What is protected inheritance used for?
- * A: Implementation detail inheritance (not IS-A). Rarely used
- *
- * Q7: Can constructors be inherited?
- * A: No (pre-C++11). C++11: using Base::Base to inherit constructors
- *
- * Q8: What members are not inherited?
- * A: Constructors, destructors, assignment operators, friend functions
- *
- * ==================================================================================================
- * GPU/CUDA RELEVANCE:
- * - Device types: GPUDevice inherits from Device
- * - Stream hierarchies: CudaStream, CudaStreamNonBlocking
- * - Memory types: DeviceMemory, HostMemory, UnifiedMemory
- * - Kernel launchers: Polymorphic kernel execution
- *
- * COMPILATION: g++ -std=c++17 01_inheritance.cpp -o inheritance
- *
- * LEARNING CHECKLIST:
- * ☐ Create single inheritance hierarchies
- * ☐ Understand public/protected/private inheritance
- * ☐ Know constructor/destructor call order
- * ☐ Handle multiple inheritance
- * ☐ Solve diamond problem with virtual inheritance
- * ==================================================================================================
- */
+    class Swimmable {
+    public:
+        virtual void swim() { cout << "Swimming..." << endl; }
+    };
 
-int main() {
-    cout << "=== Inheritance Practice ===" << endl;
+    class Duck : public Animal, public Flyable, public Swimmable {
+    public:
+        Duck(const string &n, int a) : Animal(n, a) {
+        }
 
-    Dog d("Buddy", 3, "Golden Retriever");
-    d.eat();
-    d.bark();
+        void fly() override { cout << name << " flies!" << endl; }
+        void swim() override { cout << name << " swims!" << endl; }
+    };
 
-    return 0;
-}
+    // TODO 3.2: Test multiple inheritance
+    // Create Duck, call methods from all base classes
+
+    /*
+     * EXERCISE 4: Diamond Problem (10 min)
+     */
+
+    // TODO 4.1: Understand diamond problem
+    class PoweredDevice {
+    public:
+        void powerOn() { cout << "Powering on..." << endl; }
+    };
+
+    // Without virtual inheritance: two copies of PoweredDevice
+    class Scanner : public PoweredDevice {
+    };
+
+    class Printer : public PoweredDevice {
+    };
+
+    class Copier : public Scanner, public Printer {
+        // Ambiguous: Which powerOn()? Scanner's or Printer's?
+    };
+
+    // TODO 4.2: Fix with virtual inheritance
+    class VScanner : virtual public PoweredDevice {
+    };
+
+    class VPrinter : virtual public PoweredDevice {
+    };
+
+    class VCopier : public VScanner, public VPrinter {
+        // Now only one copy of PoweredDevice
+    };
+
+    /*
+     * COMMON INTERVIEW QUESTIONS:
+     *
+     * Q1: What is inheritance?
+     * A: Mechanism to create new class from existing class, inheriting members and behavior
+     *
+     * Q2: When to use public inheritance?
+     * A: IS-A relationship: Derived IS-A Base (Dog IS-A Animal)
+     *
+     * Q3: Constructor/destructor call order in inheritance?
+     * A: Construction: Base → Derived. Destruction: Derived → Base (reverse order)
+     *
+     * Q4: What is the diamond problem?
+     * A: Multiple inheritance causing duplicate base class. Fix with virtual inheritance
+     *
+     * Q5: Can you override non-virtual functions?
+     * A: Yes, but it's hiding (not polymorphic). Use virtual for true override
+     *
+     * Q6: What is protected inheritance used for?
+     * A: Implementation detail inheritance (not IS-A). Rarely used
+     *
+     * Q7: Can constructors be inherited?
+     * A: No (pre-C++11). C++11: using Base::Base to inherit constructors
+     *
+     * Q8: What members are not inherited?
+     * A: Constructors, destructors, assignment operators, friend functions
+     *
+     * ==================================================================================================
+     * GPU/CUDA RELEVANCE:
+     * - Device types: GPUDevice inherits from Device
+     * - Stream hierarchies: CudaStream, CudaStreamNonBlocking
+     * - Memory types: DeviceMemory, HostMemory, UnifiedMemory
+     * - Kernel launchers: Polymorphic kernel execution
+     *
+     * COMPILATION: g++ -std=c++17 01_inheritance.cpp -o inheritance
+     *
+     * LEARNING CHECKLIST:
+     * ☐ Create single inheritance hierarchies
+     * ☐ Understand public/protected/private inheritance
+     * ☐ Know constructor/destructor call order
+     * ☐ Handle multiple inheritance
+     * ☐ Solve diamond problem with virtual inheritance
+     * ==================================================================================================
+     */
+
+    int main() {
+        cout << "=== Inheritance Practice ===" << endl;
+        Dog *dog = new Dog("ACE", 2, "Malinios");
+        Dog d("Buddy", 3, "Golden Retriever");
+        dog->bark();
+        dog->sleep();
+        dog->bark();
+        delete dog;
+        d.eat();
+        d.bark();
+        return 0;
+    }

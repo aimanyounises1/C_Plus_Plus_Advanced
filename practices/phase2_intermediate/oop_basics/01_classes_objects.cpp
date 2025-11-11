@@ -28,8 +28,10 @@
 
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 #include <cmath>
+#include <random>
 
 using namespace std;
 
@@ -79,8 +81,17 @@ using namespace std;
 class Rectangle {
 public:
     // TODO: Add member variables
+    double height;
+    double width;
 
     // TODO: Add member functions
+    double calculateArea() const {
+        return height * width;
+    }
+
+    double calculatePerimeter() const {
+        return 2 * (height + width);
+    }
 };
 
 // TODO 1.2: Create Rectangle objects
@@ -108,9 +119,9 @@ public:
     double radius;
 
     // Method declarations (prototypes)
-    double getArea();           // Implement outside class
-    double getCircumference();  // Implement outside class
-    void   setRadius(double r); // Implement outside class
+    double getArea(); // Implement outside class
+    double getCircumference(); // Implement outside class
+    void setRadius(double r); // Implement outside class
 };
 
 // TODO: Implement the methods outside the class using ClassName::methodName syntax
@@ -118,6 +129,18 @@ public:
 // double Circle::getArea() {
 //     return 3.14159 * radius * radius;
 // }
+
+double Circle::getArea() {
+    return M_PI * pow(radius, 2);
+}
+
+double Circle::getCircumference() {
+    return 2 * M_PI * radius;
+}
+
+void Circle::setRadius(double r) {
+    radius = r;
+}
 
 
 // TODO 2.2: Test the Circle class
@@ -137,17 +160,17 @@ public:
     double x, y;
 
     // TODO: Implement setCoordinates that uses 'this' to disambiguate
-    // void setCoordinates(double x, double y) {
-    //     this->x = x;  // this->x is the member, x is the parameter
-    //     this->y = y;
-    // }
+    void setCoordinates(double x, double y) {
+        this->x = x; // this->x is the member, x is the parameter
+        this->y = y;
+    }
 
     // TODO: Implement a method that returns 'this' for method chaining
-    // Point* moveTo(double x, double y) {
-    //     this->x = x;
-    //     this->y = y;
-    //     return this;
-    // }
+    Point *moveTo(double x, double y) {
+        this->x = x;
+        this->y = y;
+        return this;
+    }
 };
 
 // TODO 3.2: Test method chaining
@@ -176,7 +199,7 @@ struct PersonStruct {
 };
 
 class PersonClass {
-    string name;  // Default: private in class
+    string name; // Default: private in class
     int age;
 };
 
@@ -200,6 +223,48 @@ class PersonClass {
 // - Method: withdraw(double amount) - subtracts from balance (check sufficient funds!)
 // - Method: getBalance() - returns current balance
 // - Method: displayInfo() - prints account information
+
+class BankAccount {
+private:
+    string accountNumber;
+    string holderName;
+    double balance = 0;
+
+public:
+    BankAccount() {
+    }
+
+    BankAccount(const string &accNum, const string &holderName, double balance) {
+        this->accountNumber = accNum;
+        this->holderName = holderName;
+        this->balance = balance;
+    }
+
+    void deposit(double amount) {
+        this->balance += amount;
+    }
+
+    double getBalance() const {
+        return balance;
+    }
+
+    void displayInfo() const {
+        cout << "Account number: " << accountNumber << "\n" << "Holder name" << holderName << "\n" << "Balance: " <<
+                balance << endl;
+    }
+
+    void setAccountNumber(const string &accountNumber_) {
+        this->accountNumber = accountNumber_;
+    }
+
+    void setHolderName(const string &holderName_) {
+        this->holderName = holderName_;
+    }
+
+    void setBalance(double balance_) {
+        this->balance = balance_;
+    }
+};
 
 
 // TODO 5.2: Create multiple bank accounts
@@ -462,8 +527,36 @@ public:
 
 int main() {
     cout << "=== Classes and Objects Practice ===" << endl;
-
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    int min = 1.0;
+    int max = 10.0;
+    std::uniform_real_distribution<> distribution(min, max);
+    Rectangle rect;
+    rect.height = distribution(gen);
+    rect.width = distribution(gen);
+    cout << "Rectangle perimeter : = " << rect.calculatePerimeter() << endl;
+    cout << "Rectangle area : = " << rect.calculateArea() << endl;
     // Test your implementations here
+    // TODO 1.3: Create multiple objects
+    Rectangle rect2, rect3;
+    rect2.height = distribution(gen);
+    rect2.width = distribution(gen);
+    rect3.height = distribution(gen);
+    rect3.width = distribution(gen);
+    vector<Rectangle> rects;
+    rects.push_back(rect);
+    rects.push_back(rect2);
+    rects.push_back(rect3);
+    //TODO 3.2: Test method chaining
+    Point p;
+    p.setCoordinates(distribution(gen), distribution(gen));
+    cout << p.x << " " << p.y << endl;
+    cout << "Before calli<ng moveTo function:" << endl;
+    p.moveTo(5, 10)->moveTo(10, 25)->moveTo(25, 10)->moveTo(25, 25);
+    cout << p.x << " " << p.y << endl;
+    // TODO 5.1: Create a "BankAccount" class
+    BankAccount bank_account;
 
     return 0;
 }

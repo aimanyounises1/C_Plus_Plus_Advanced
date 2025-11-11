@@ -61,7 +61,7 @@ int main() {
     //     std::cerr << "Failed to open file\n";
     // }
 
-
+    constexpr int eye_count {2};
     std::cout << "\n";
 
     // ========================================================================
